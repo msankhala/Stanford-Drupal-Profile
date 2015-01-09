@@ -4,6 +4,9 @@
  * Standford Drupal 6 to Drupal 7 migration.
  */
 
+define('STANFORD_SOURCE_D6_DTABASE_NAME', 'legacy');
+define('STANFORD_EVENT_AUDIENCE_VOCABULARY_ID', 1);
+define('STANFORD_EVENT_CATEGORIES_VOCABULARY_ID', 2);
 /**
  * Implements hook_migrate_api().
  */
@@ -32,7 +35,7 @@ function stanford_d6_migrate_register_migrations() {
    * the Drupal 6 database) and source_version (major version of Drupal).
    */
   $common_arguments = array(
-    'source_connection' => 'legacy',
+    'source_connection' => STANFORD_SOURCE_D6_DTABASE_NAME,
     'source_version' => 6,
     'group_name' => 'Standford import',
   );
@@ -54,14 +57,14 @@ function stanford_d6_migrate_register_migrations() {
   $vocabulary_arguments = array(
     array(
       'description' => t('Migration of Countries terms from Drupal 6'),
-      'machine_name' => 'StandfordEventAudience',
-      'source_vocabulary' => '1',  // D6 Vocabulary ID
+      'machine_name' => 'StanfordEventAudience',
+      'source_vocabulary' => STANFORD_EVENT_AUDIENCE_VOCABULARY_ID,  // D6 Vocabulary ID
       'destination_vocabulary' => 'stanford_event_audience',
     ),
     array(
       'description' => t('Migration of Topics terms from Drupal 6'),
-      'machine_name' => 'StandfordEventCategories',
-      'source_vocabulary' => '2',  // D6 Vocabulary ID
+      'machine_name' => 'StanfordEventCategories',
+      'source_vocabulary' => STANFORD_EVENT_CATEGORIES_VOCABULARY_ID,  // D6 Vocabulary ID
       'destination_vocabulary' => 'stanford_event_categories',
     ),
   );
