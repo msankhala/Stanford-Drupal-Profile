@@ -1,0 +1,22 @@
+name = "Stanford drupal 6 migrate"
+description = "Stanford drupal 6 migration module to migrate data from stanford drupal 6 website to drupal 7."
+package = "Stanford"
+core = 7.x
+dependencies[] = taxonomy
+dependencies[] = image
+dependencies[] = comment
+dependencies[] = migrate
+dependencies[] = list
+dependencies[] = number
+dependencies[] = text
+dependencies[] = migrate_d2d
+;node_reference is useful but not required
+;dependencies[] = node_reference
+
+;files[] = include/StanfordMigration.inc
+files[] = include/StanfordCourse6Migration.inc
+files[] = include/StanfordUser6Migration.inc
+files[] = include/StanfordCourseSection6Migration.inc
+
+
+
